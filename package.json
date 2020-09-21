@@ -21,6 +21,8 @@
     "@angular/router": "~10.1.2",
     "rxjs": "~6.6.0",
     "tslib": "^2.0.0",
+    "uppy": "^1.21.1",
+    "uppy-angular": "^0.1.2",
     "zone.js": "~0.10.2"
   },
   "devDependencies": {
