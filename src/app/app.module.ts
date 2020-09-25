@@ -4,6 +4,7 @@ import { UppyAngularModule } from 'uppy-angular';
 import { AppComponent } from './app.component';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { NgSelectModule } from '@ng-select/ng-select';
 
 @NgModule({
   declarations: [
@@ -13,7 +14,8 @@ import { FormsModule } from '@angular/forms';
     BrowserModule,
     CommonModule,
     FormsModule,
-    UppyAngularModule
+    UppyAngularModule,
+    NgSelectModule
   ],
   providers: [],
   bootstrap: [AppComponent]

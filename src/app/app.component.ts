@@ -9,7 +9,7 @@ import { UppyConfig } from 'uppy-angular';
 })
 export class AppComponent {
 
-  show:boolean = true
+  show: boolean = true
 
   settings: UppyConfig = {
     uploadAPI: {
@@ -30,7 +30,7 @@ export class AppComponent {
       maxFileSize: 100000000000,
       maxNumberOfFiles: 10,
       minNumberOfFiles: 1,
-      allowedFileTypes:[]
+      allowedFileTypes: null
     }
   }
 
@@ -43,20 +43,22 @@ export class AppComponent {
     'ScreenCapture'
   ]
 
+  FileTypeList = ['image/*', 'video/*','.docx','.doc','.xls','.xlsx','.pdf','.jpg','.png','.tif','.msg','.html','.htm','.txt']
+
   onFileUpload(evt) {
 
   }
 
-  onPluginClick(pluginName, isChecked){
+  onPluginClick(pluginName, isChecked) {
     this.settings.plugins[pluginName] = isChecked
     this.resetChildForm()
   }
 
-  resetChildForm(){
+  resetChildForm() {
     this.show = false;
- 
+
     setTimeout(() => {
-       this.show = true
-     }, 10);
- }
+      this.show = true;
+    }, 10);
+  }
 }

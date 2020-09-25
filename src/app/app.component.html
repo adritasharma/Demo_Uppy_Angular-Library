@@ -1,52 +1,65 @@
-<div class="row">
-    <div class="col-6 card">
-        <div class="card-header">
-            Demo
-        </div>
-        <div class="card-body">
-            <ng-uppy [config]="settings" (onFileUpload)="onFileUpload($event)" *ngIf="show"></ng-uppy>
-        </div>
-    </div>
-    <div class="col-6 card">
-        <div class="card-header">
-            Configuration
-        </div>
-        <div class="card-body">
-            <h5>Plugins</h5>
-            <div class="row">
-                <div class="col-6" *ngFor="let plugin of settings.plugins | keyvalue;let i = index">
-                    <div class="form-check">
-                        <input class="form-check-input" type="checkbox" [(ngModel)]="plugin.value" name="plugin-{{i}}"
-                            (ngModelChange)="onPluginClick(plugin.key, $event)">
-                        <label class="form-check-label">
-                            {{plugin.key}}
-                        </label>
-                    </div>
-                </div>
+<div class="container">
+    <div class="row">
+        <div class="col-6 card">
+            <div class="card-header">
+                Demo
             </div>
-            <hr>
-            <h5>Restrictions</h5>
-            <div class="row">
-                <div class="col-6">
-                    <div class="form-group">
-                        <label >maxNumberOfFiles:</label>
-                        <input type="number" class="form-control" [(ngModel)]="settings.restrictions.maxNumberOfFiles">
-                    </div>
-                </div>
-                <div class="col-6">
-                    <div class="form-group">
-                        <label >minNumberOfFiles:</label>
-                        <input type="number" class="form-control" [(ngModel)]="settings.restrictions.minNumberOfFiles">
-                    </div>
-                </div>
-                <div class="col-6">
-                    <div class="form-group">
-                        <label >maxFileSize:</label>
-                        <input type="number" class="form-control" [(ngModel)]="settings.restrictions.maxFileSize">
-                    </div>
-                </div>
+            <div class="card-body">
+                <ng-uppy [config]="settings" (onFileUpload)="onFileUpload($event)" *ngIf="show"></ng-uppy>
             </div>
-            <pre>{{settings | json}} </pre>
+        </div>
+        <div class="col-6 card">
+            <div class="card-header">
+                Configuration
+            </div>
+            <div class="card-body">
+                <h5>Plugins</h5>
+                <div class="row">
+                    <div class="col-6" *ngFor="let plugin of settings.plugins | keyvalue;let i = index">
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" [(ngModel)]="plugin.value"
+                                name="plugin-{{i}}" (ngModelChange)="onPluginClick(plugin.key, $event)">
+                            <label class="form-check-label">
+                                {{plugin.key}}
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                <hr>
+                <h5>Restrictions</h5>
+                <div class="row">
+                    <div class="col-6">
+                        <div class="form-group">
+                            <label>maxNumberOfFiles:</label>
+                            <input type="number" class="form-control"
+                                [(ngModel)]="settings.restrictions.maxNumberOfFiles">
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <div class="form-group">
+                            <label>minNumberOfFiles:</label>
+                            <input type="number" class="form-control"
+                                [(ngModel)]="settings.restrictions.minNumberOfFiles">
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <div class="form-group">
+                            <label>allowedFileTypes:</label>
+                            <ng-select [items]="FileTypeList" [multiple]="true" [closeOnSelect]="false"
+                                [searchable]="false" placeholder="Select File Types"
+                                [(ngModel)]="settings.restrictions.allowedFileTypes" (ngModelChange)="resetChildForm()">
+                            </ng-select>
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <div class="form-group">
+                            <label>maxFileSize:</label>
+                            <input type="number" class="form-control" [(ngModel)]="settings.restrictions.maxFileSize">
+                        </div>
+                    </div>
+                </div>
+                <pre>{{settings | json}} </pre>
+            </div>
         </div>
     </div>
 </div>
