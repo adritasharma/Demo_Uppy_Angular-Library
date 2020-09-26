@@ -10,7 +10,7 @@ import { UppyConfig } from 'uppy-angular';
 export class AppComponent {
 
   show: boolean = true
-
+  active = 1
   settings: UppyConfig = {
     uploadAPI: {
       endpoint: 'environment.apiUrl' + 'files/Upload',
@@ -34,6 +34,8 @@ export class AppComponent {
     },
     theme : 'auto',
   }
+
+  templateString = '<ng-uppy [config]="settings" (onFileUpload)="onFileUpload($event)"></ng-uppy>'
 
   pluginList = [
     'Webcam',
