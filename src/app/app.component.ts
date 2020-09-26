@@ -31,7 +31,8 @@ export class AppComponent {
       maxNumberOfFiles: 10,
       minNumberOfFiles: 1,
       allowedFileTypes: null
-    }
+    },
+    theme : 'auto',
   }
 
   pluginList = [

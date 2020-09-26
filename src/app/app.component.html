@@ -58,6 +58,130 @@
                         </div>
                     </div>
                 </div>
+                <h5>Look and Feel</h5>
+                <div class="row">
+                    <div class="col-6">
+                        <div class="form-group">
+                            <label>height:</label>
+                            <input type="number" class="form-control" [(ngModel)]="settings.height"
+                                (ngModelChange)="resetChildForm()">
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <div class="form-group">
+                            <label>width:</label>
+                            <input type="number" class="form-control" [(ngModel)]="settings.width"
+                                (ngModelChange)="resetChildForm()">
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <div class="form-group">
+                            <label>Note:</label>
+                            <textarea class="form-control" [(ngModel)]="settings.note"
+                                (ngModelChange)="resetChildForm()"></textarea>
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <div class="form-group">
+                            <label>Theme:</label>
+                            <div>
+                                <label class="form-check-label">
+                                    <input type="radio" name="theme" value="auto" [(ngModel)]="settings.theme"
+                                        checked> Auto
+                                </label>
+                                <label class="form-check-label">
+                                    <input type="radio" name="theme" value="dark" [(ngModel)]="settings.theme"> Dark
+                                </label>
+                                <label class="form-check-label">
+                                    <input type="radio" name="theme" value="light" [(ngModel)]="settings.theme">
+                                    Light
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <h5>Options</h5>
+                <div class="row">
+                    <div class="col-6">
+                        <div class="form-group">
+                            <div>
+                                <label class="uppy-option-label">AutoProceed:</label>
+                                <label class="form-check-label">
+                                    <input type="radio" name="autoProceed" value="true" [(ngModel)]="settings.autoProceed"
+                                        checked> Yes
+                                </label>
+                                <label class="form-check-label">
+                                    <input type="radio" name="autoProceed" value="false"
+                                        [(ngModel)]="settings.autoProceed"> No
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <div class="form-group">
+                            <div>
+                                <label class="uppy-option-label">AllowMultipleUploads:</label>
+                                <label class="form-check-label">
+                                    <input type="radio" name="allowMultipleUploads" value="true"
+                                        [(ngModel)]="settings.allowMultipleUploads" checked> Yes
+                                </label>
+                                <label class="form-check-label">
+                                    <input type="radio" name="allowMultipleUploads" value="false"
+                                        [(ngModel)]="settings.allowMultipleUploads"> No
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-6">
+
+                        <div class="form-group">
+                            <div>
+                                <label class="uppy-option-label">showProgressDetails:</label>
+                                <label class="form-check-label">
+                                    <input type="radio" name="showProgressDetails" value="true"
+                                        [(ngModel)]="settings.showProgressDetails" checked> Yes
+                                </label>
+                                <label class="form-check-label">
+                                    <input type="radio" name="showProgressDetails" value="false"
+                                        [(ngModel)]="settings.showProgressDetails"> No
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <div class="form-group">
+                            <div>
+                                <label class="uppy-option-label">Debug:</label>
+                                <label class="form-check-label">
+                                    <input type="radio" name="debug" value="true" [(ngModel)]="settings.debug"
+                                        checked>
+                                    Yes
+                                </label>
+                                <label class="form-check-label">
+                                    <input type="radio" name="debug" value="false" [(ngModel)]="settings.debug"> No
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <div class="form-group">
+                            <div>
+                                <label class="uppy-option-label">browserBackButtonClose:</label>
+                                <label class="form-check-label">
+                                    <input type="radio" name="browserBackButtonClose" value="true"
+                                        [(ngModel)]="settings.browserBackButtonClose" checked> Yes
+                                </label>
+                                <label class="form-check-label">
+                                    <input type="radio" name="browserBackButtonClose" value="false"
+                                        [(ngModel)]="settings.browserBackButtonClose"> No
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
                 <pre>{{settings | json}} </pre>
             </div>
         </div>
