@@ -37,13 +37,20 @@ export class AppComponent {
 
   templateString = '<ng-uppy [config]="settings" (onFileUpload)="onFileUpload($event)"></ng-uppy>'
 
-  pluginList = [
-    'Webcam',
-    'GoogleDrive',
-    'Instagram',
-    'Facebook',
-    'Dropbox',
-    'ScreenCapture'
+
+
+  optionList = [
+    "debug",
+    "showProgressDetails",
+    "browserBackButtonClose",
+    "hideUploadButton",
+    "hideRetryButton",
+    "hidePauseResumeButton",
+    "hideCancelButton",
+    "hideProgressAfterFinish",
+    "proudlyDisplayPoweredByUppy",
+    "autoProceed",
+    "allowMultipleUploads",
   ]
 
   FileTypeList = ['image/*', 'video/*','.docx','.doc','.xls','.xlsx','.pdf','.jpg','.png','.tif','.msg','.html','.htm','.txt']
@@ -62,6 +69,6 @@ export class AppComponent {
 
     setTimeout(() => {
       this.show = true;
-    }, 10);
+    }, 0);
   }
 }
