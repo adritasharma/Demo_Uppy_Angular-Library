@@ -13,7 +13,7 @@ export class AppComponent {
   active = 1
   settings: UppyConfig = {
     uploadAPI: {
-      endpoint: 'environment.apiUrl' + 'files/Upload',
+      endpoint: environment.apiUrl + 'Upload',
       headers: {
         Authorization: 'Bearer ' + localStorage.getItem('userToken')
       }
@@ -32,32 +32,71 @@ export class AppComponent {
       minNumberOfFiles: 1,
       allowedFileTypes: null
     },
-    theme : 'auto',
+    uploaderLook: {
+      theme: 'auto',
+      proudlyDisplayPoweredByUppy: true
+    },
+    statusBarOptions: {
+      hideProgressAfterFinish: false
+    },
+    options : {
+      autoProceed:false
+    }
   }
 
-  templateString = '<ng-uppy [config]="settings" (onFileUpload)="onFileUpload($event)"></ng-uppy>'
+
+  installationString = `
+      <h5> Installation </h5>            
+            npm i uppy-angular
+
+      <h5> Import & Initialization </h5>                     
+            ### app.module.ts
+            
+                import { UppyAngularModule } from 'uppy-angular';
+            
+                @NgModule({
+                    imports: [
+                        UppyAngularModule
+                        ...
+                    ],
+                    ...
+                })`
+  templateString = '<ng-uppy [config]="settings" (onFileUpload)="onFileUpload($event)"></ng-uppy>';
+
+  tsString = `
+  onFileAdd(evt) {
+    console.log("onFileAdd", evt)
+  }
+
+  onFileUpload(evt) {
+    console.log("onFileUpload", evt)
+  }
+
+  uploadResult(evt) {
+    console.log("uploadResult", evt)
+  }`
 
 
 
-  optionList = [
-    "debug",
+  statusBarOptionList = [
+    "hideAfterFinish",
     "showProgressDetails",
-    "browserBackButtonClose",
     "hideUploadButton",
     "hideRetryButton",
     "hidePauseResumeButton",
     "hideCancelButton",
-    "hideProgressAfterFinish",
-    "proudlyDisplayPoweredByUppy",
-    "autoProceed",
-    "allowMultipleUploads",
+    "hideProgressAfterFinish"
   ]
 
-  FileTypeList = ['image/*', 'video/*','.docx','.doc','.xls','.xlsx','.pdf','.jpg','.png','.tif','.msg','.html','.htm','.txt']
+  optionList = [
+    "debug",
+    "browserBackButtonClose",
+    "autoProceed",
+    "allowMultipleUploads"
+  ]
 
-  onFileUpload(evt) {
+  FileTypeList = ['image/*', 'video/*', '.docx', '.doc', '.xls', '.xlsx', '.pdf', '.jpg', '.png', '.tif', '.msg', '.html', '.htm', '.txt']
 
-  }
 
   onPluginClick(pluginName, isChecked) {
     this.settings.plugins[pluginName] = isChecked
@@ -70,5 +109,17 @@ export class AppComponent {
     setTimeout(() => {
       this.show = true;
     }, 0);
+  }
+
+  onFileAdd(evt) {
+    console.log("onFileAdd", evt)
+  }
+
+  onFileUpload(evt) {
+    console.log("onFileUpload", evt)
+  }
+
+  uploadResult(evt) {
+    console.log("uploadResult", evt)
   }
 }
